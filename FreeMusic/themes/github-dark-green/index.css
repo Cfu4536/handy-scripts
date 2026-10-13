@@ -1,8 +1,14 @@
 /*
  * GitHub 暗黑绿 — MusicFree Desktop v1.0.0-beta.4
- * 参考 GitHub Primer 的暗色调色板，仅覆盖颜色和背景相关变量。
+ * 参考 GitHub Primer 的暗色调色板，并按用户要求调整字体组合。
  */
 :root {
+    /* 字体：英文与数字使用 Segoe UI，中文优先使用 Noto Sans SC。 */
+    --font-family:
+        'Microsoft YaHei UI', 'Microsoft YaHei',
+        'PingFang SC', 'Hiragino Sans GB', system-ui, sans-serif,
+        'Segoe UI Emoji', 'Apple Color Emoji';
+
     /* 背景：使用不透明的灰黑层次区分各区域。 */
     --color-bg-base: #0d1117;
     --color-bg-sidebar: #151b23;
@@ -62,4 +68,28 @@
 
     /* 纯色主题：关闭应用默认的背景渐变。 */
     --bg-image: none;
+}
+
+/* 按用户要求局部放大 beta4 侧栏菜单及左下工具栏。 */
+.l-sidebar .l-sidebar__nav-item {
+    font-size: 16px;
+}
+
+.l-sidebar .l-sidebar__nav-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.l-sidebar .l-sidebar__group-title {
+    font-size: 18px;
+}
+
+.l-sidebar .l-sidebar__tool-btn {
+    width: 36px;
+    height: 36px;
+}
+
+.l-sidebar .l-sidebar__tool-btn > svg {
+    width: 20px;
+    height: 20px;
 }

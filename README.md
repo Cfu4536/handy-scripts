@@ -33,7 +33,8 @@ handy-scripts/
 │   └── themes/
 │       ├── github-dark-green/ # 主题源码：config.json、index.css
 │       ├── github-dark-green.mftheme # 可安装主题包
-│       └── github-dark-green-preview.png # 配色与控件示意
+│       ├── github-dark-green-preview.png # 配色与控件示意
+│       └── github-dark-green-sidebar-preview.png # 侧栏尺寸对比
 └── WebScripts/
     └── 学信网篡改.js          # 学信网移动端页面显示自定义脚本
 ```
@@ -128,7 +129,7 @@ MusicFree 支持从网络或本地 JSON 文件安装插件。导入步骤参考 
 
 ## MusicFree 桌面主题
 
-[GitHub 暗黑绿主题包](FreeMusic/themes/github-dark-green.mftheme) 为 MusicFree Desktop `v1.0.0-beta.4` 制作，版本为 `1.0.0`。配色参考 [GitHub Primer 暗色调色板](https://github.com/primer/primitives/blob/main/src/tokens/base/color/dark/dark.json5)，主题变量已核对该客户端版本的 [global.scss](https://github.com/maotoumao/MusicFreeDesktop/blob/v1.0.0-beta.4/src/renderer/bootstrap/global.scss)。
+[GitHub 暗黑绿主题包](FreeMusic/themes/github-dark-green.mftheme) 为 MusicFree Desktop `v1.0.0-beta.4` 制作，版本为 `1.0.2`。配色参考 [GitHub Primer 暗色调色板](https://github.com/primer/primitives/blob/main/src/tokens/base/color/dark/dark.json5)，主题变量已核对该客户端版本的 [global.scss](https://github.com/maotoumao/MusicFreeDesktop/blob/v1.0.0-beta.4/src/renderer/bootstrap/global.scss)。
 
 | 区域 | 配色 |
 | --- | --- |
@@ -141,7 +142,23 @@ MusicFree 支持从网络或本地 JSON 文件安装插件。导入步骤参考 
 
 主题通过 `:root` 覆盖颜色变量，不包含背景图片、动态背景或外部资源，并通过 `--bg-image: none` 关闭默认背景渐变。普通次要按钮沿用深灰底色，提示和危险操作保留相应的蓝、黄、红色。歌曲封面和客户端自行生成的全屏封面氛围背景仍由客户端控制。
 
+`1.0.1` 起按用户要求调整 `--font-family`：英文和数字优先使用 `Segoe UI`，中文优先使用 `Noto Sans SC`；缺少对应字体时依次回退到微软雅黑 UI、微软雅黑、苹方等系统字体。字体从本机读取，不随主题打包，也无需联网下载。本机已确认安装 Segoe UI 和 Noto Sans SC，并通过浏览器字体诊断确认示意中的中文实际使用 Noto Sans SC、英文和数字实际使用 Segoe UI。
+
+`1.0.2` 按用户要求使用 beta4 的侧栏类名进行局部尺寸调整：
+
+| 项目 | 原尺寸 | 主题尺寸 |
+| --- | --- | --- |
+| 左侧菜单文字（含歌单名称） | 14px | 15px |
+| 左侧菜单图标 | 16px | 20px |
+| 侧栏分组标题 | 11px | 12px |
+| 左下工具栏图标（插件、主题、设置、小窗） | 16px | 20px |
+| 左下工具栏按钮 | 32 × 32px | 36 × 36px |
+
+局部规则均以 `.l-sidebar` 限定范围，不修改全局字号、图标或控件尺寸变量。侧栏宽度、菜单行高、其他页面和底部播放控制的尺寸沿用客户端原值，歌单长标题仍使用省略号显示。
+
 [配色与控件示意](FreeMusic/themes/github-dark-green-preview.png) 直接读取主题 CSS 在浏览器中渲染，仅用于展示颜色和控件状态，不是 MusicFree 客户端截图，也不随主题安装。
+
+[侧栏尺寸对比](FreeMusic/themes/github-dark-green-sidebar-preview.png) 使用本机 beta4 程序中编译后的侧栏样式和对应组件结构展示调整前后尺寸，包含左下工具栏和长歌单名称，同样不是客户端截图。
 
 ### 安装
 
@@ -152,18 +169,19 @@ MusicFree 支持从网络或本地 JSON 文件安装插件。导入步骤参考 
 
 ### 自定义与重新打包
 
-源码位于 [FreeMusic/themes/github-dark-green](FreeMusic/themes/github-dark-green)。修改 `index.css` 中的颜色即可调整外观；`config.json` 可修改主题名称、作者、描述和预览色，更新时递增 `version`。字号、间距、布局和圆角沿用客户端设置。
+源码位于 [FreeMusic/themes/github-dark-green](FreeMusic/themes/github-dark-green)。修改 `index.css` 中的颜色即可调整外观，也可通过 `--font-family` 调整字体的优先顺序；文件末尾的 `.l-sidebar` 局部规则控制侧栏字号和图标大小。`config.json` 可修改主题名称、作者、描述和预览色，更新时递增 `version`。
 
 在项目根目录运行以下 PowerShell 命令，可用两个源码文件重新生成安装包：
 
 ```powershell
 $themeSource = ".\FreeMusic\themes\github-dark-green"
 $themeArchive = ".\FreeMusic\themes\github-dark-green.zip"
+
 Compress-Archive -LiteralPath "$themeSource\config.json", "$themeSource\index.css" -DestinationPath $themeArchive -Force
 Move-Item -LiteralPath $themeArchive -Destination ".\FreeMusic\themes\github-dark-green.mftheme" -Force
 ```
 
-安装包根目录直接包含 `config.json` 和 `index.css`，已检查打包内容与源码一致。46 个覆盖变量均存在于 beta4 的源码中，未覆盖结构性变量；已在 Edge 中检查 CSS 解析、主按钮默认与悬停状态、键盘焦点，以及主要文字和按钮配色的对比度，检查的文字配色对比度均不低于 `4.5:1`。这些检查基于浏览器中的控件示意，尚未在 MusicFree 客户端实际安装验证。此主题尚未发布到主题市场。
+安装包根目录直接包含 `config.json` 和 `index.css`，已检查打包内容与源码一致。47 个覆盖变量均存在于 beta4 的源码中；全局字体调整仅覆盖用户要求的 `--font-family`。颜色与字体已在 Edge 控件示意中检查，文字配色对比度均不低于 `4.5:1`；侧栏局部尺寸已使用 beta4 的组件结构和样式检查，覆盖菜单、长歌单名称和底部工具栏。浏览器检查与实际客户端验证是不同步骤，尚未在 MusicFree 客户端实际安装验证。此主题尚未发布到主题市场。
 
 ## 浏览器用户脚本
 
