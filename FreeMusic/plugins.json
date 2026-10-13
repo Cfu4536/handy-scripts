@@ -2,6 +2,11 @@
   "desc": "hwb的自用FreeMusic插件",
   "plugins": [
     {
+      "name": "酷狗Thomas",
+      "url": "https://cdn.jsdelivr.net/gh/qwerwhr/musicfree-plugins@main/酷狗Thomas.js",
+      "version": "1.0.0"
+    },
+    {
       "name": "QQ音乐-hwb",
       "url": "https://cdn.jsdelivr.net/gh/qwerwhr/musicfree-plugins@main/迟言QQ.js",
       "version": "1.0.0"
