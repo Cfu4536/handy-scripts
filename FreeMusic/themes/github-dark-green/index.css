@@ -72,7 +72,7 @@
 
 /* 按用户要求局部放大 beta4 侧栏菜单及左下工具栏。 */
 .l-sidebar .l-sidebar__nav-item {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .l-sidebar .l-sidebar__nav-icon {
@@ -81,7 +81,7 @@
 }
 
 .l-sidebar .l-sidebar__group-title {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .l-sidebar .l-sidebar__tool-btn {
