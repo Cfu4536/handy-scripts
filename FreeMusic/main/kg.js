@@ -875,7 +875,7 @@ async function getMusicComments(musicItem, page = 1) {
 // 返回函数
 module.exports = {
     platform: "酷狗音乐",
-    author: '反馈Q群@365976134',
+    author: 'hwb',
     version: "2025.10.01",
     appVersion: ">0.4.0-alpha.0",
     srcUrl: "https://raw.githubusercontent.com/ThomasBy2025/musicfree/refs/heads/main/plugins/kg.js",

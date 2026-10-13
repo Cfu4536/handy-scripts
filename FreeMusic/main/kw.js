@@ -640,7 +640,7 @@ async function importMusicItem(urlLike) {
 // 返回函数
 module.exports = {
     platform: "酷我音乐",
-    author: '反馈Q群@365976134',
+    author: 'hwb',
     version: "2025.09.16",
     appVersion: ">0.4.0-alpha.0",
     srcUrl: "https://raw.githubusercontent.com/ThomasBy2025/musicfree/refs/heads/main/plugins/kw.js",

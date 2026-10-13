@@ -1,0 +1,55 @@
+{
+  "desc": "hwb的自用FreeMusic插件",
+  "plugins": [
+    {
+      "name": "QQ音乐-hwb",
+      "url": "https://raw.githubusercontent.com/Cfu4536/handy-scripts/refs/heads/main/FreeMusic/%E5%85%A5%E5%8F%A3%E6%8F%92%E4%BB%B6/QQ%E9%9F%B3%E4%B9%90.js",
+      "version": "1.0.0"
+    },
+    {
+      "name": "网易云音乐-hwb",
+      "url": "https://cdn.jsdelivr.net/gh/qwerwhr/musicfree-plugins@main/溯音网易.js",
+      "version": "1.0.0"
+    },
+    {
+      "name": "酷我音乐-hwb",
+      "url": "https://cdn.jsdelivr.net/gh/qwerwhr/musicfree-plugins@main/酷我音乐Thomas.js",
+      "version": "1.0.0"
+    },
+    {
+      "name": "酷狗音乐-hwb",
+      "url": "https://cdn.jsdelivr.net/gh/qwerwhr/musicfree-plugins@main/酷狗Thomas.js",
+      "version": "1.0.0"
+    },
+    {
+      "name": "喜马拉雅-hwb",
+      "url": "https://cdn.jsdelivr.net/gh/qwerwhr/musicfree-plugins@main/喜马拉雅_竹侣.js",
+      "version": "1.0.0"
+    },
+    {
+      "name": "小秋音乐",
+      "url": "https://fastly.jsdelivr.net/gh/Huibq/keep-alive/Music_Free/xiaoqiu.js",
+      "version": "0.3.0"
+    },
+    {
+      "name": "小蜗音乐",
+      "url": "https://fastly.jsdelivr.net/gh/Huibq/keep-alive/Music_Free/xiaowo.js",
+      "version": "0.3.0"
+    },
+    {
+      "name": "小芸音乐",
+      "url": "https://fastly.jsdelivr.net/gh/Huibq/keep-alive/Music_Free/xiaoyun.js",
+      "version": "0.3.0"
+    },
+    {
+      "name": "小枸音乐",
+      "url": "https://fastly.jsdelivr.net/gh/Huibq/keep-alive/Music_Free/xiaogou.js",
+      "version": "0.3.0"
+    },
+    {
+      "name": "小蜜音乐",
+      "url": "https://fastly.jsdelivr.net/gh/Huibq/keep-alive/Music_Free/xiaomi.js",
+      "version": "0.3.0"
+    }
+  ]
+}

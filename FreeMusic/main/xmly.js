@@ -255,7 +255,7 @@ async function search(query, page, type) {
 
 module.exports = {
     platform: "喜马拉雅(公开API)",
-    author: '竹佀',
+    author: 'hwb',
     version: "0.6.2",
     supportedSearchType: ["music", "album"],
     srcUrl: "https://raw.gitcode.com/Crystim/mfp/raw/main/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85_%E7%AB%B9%E4%BE%A3.js",

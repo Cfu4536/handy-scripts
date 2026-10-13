@@ -584,8 +584,8 @@ async function getMusicSheetInfo(sheet, page) {
   );
 }
 module.exports = {
-  platform: "溯音网易",
-  author: "竹佀",
+  platform: "网易云音乐",
+  author: "hwb",
   version: "1",
   appVersion: ">0.1.0-alpha.0",
   srcUrl: "https://raw.gitcode.com/Crystim/mfp/raw/main/%E6%BA%AF%E9%9F%B3%E7%BD%91%E6%98%93.js",

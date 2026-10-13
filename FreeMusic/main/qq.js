@@ -460,8 +460,8 @@ async function $d25ff3d008f9e7e0$var$search(query, page, type) {
     if (type === "lyric") return await $d25ff3d008f9e7e0$var$searchLyric(query, page);
 }
 const $d25ff3d008f9e7e0$var$pluginInstance = {
-    platform: "QQ(迟言接口)",
-    author: "竹佀",
+    platform: "QQ音乐",
+    author: "hwb",
     version: "1",
     srcUrl: "https://raw.gitcode.com/Crystim/mfp/raw/main/%E8%BF%9F%E8%A8%80QQ.js",
     cacheControl: "no-cache",
