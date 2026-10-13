@@ -462,8 +462,8 @@ async function $d25ff3d008f9e7e0$var$search(query, page, type) {
 const $d25ff3d008f9e7e0$var$pluginInstance = {
     platform: "QQ音乐",
     author: "hwb",
-    version: "1",
-    srcUrl: "https://raw.gitcode.com/Crystim/mfp/raw/main/%E8%BF%9F%E8%A8%80QQ.js",
+    version: "1.0.1",
+    srcUrl: "https://raw.githubusercontent.com/Cfu4536/handy-scripts/refs/heads/main/FreeMusic/main/qq.js",
     cacheControl: "no-cache",
     hints: {
         importMusicSheet: [

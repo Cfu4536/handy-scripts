@@ -135,7 +135,8 @@ function formatArtistItem(_) {
 
 // 请求接口
 function R(x, z) {
-    let t, z = z || "1234567890abcdef";
+    let t;
+    z = z || "1234567890abcdef";
     if (x == "randomUUID") {
         t = [R(8), R(4), R(4), R(4), R(12)].join("-");
     } else {
@@ -347,8 +348,8 @@ async function getMediaSource(musicItem, quality) {
 async function getMediaProxys(musicItem, quality, err_i = 0) {
     let lxQuality = {
         low: "128k",
-        high: "320k",
-        lossless: "flac",
+        standard: "320k",
+        high: "flac",
         super: "flac24bit"
     } [quality];
     let url, rawLrc, artwork, res;
@@ -641,9 +642,9 @@ async function importMusicItem(urlLike) {
 module.exports = {
     platform: "酷我音乐",
     author: 'hwb',
-    version: "2025.09.16",
+    version: "2026.10.13",
     appVersion: ">0.4.0-alpha.0",
-    srcUrl: "https://raw.githubusercontent.com/ThomasBy2025/musicfree/refs/heads/main/plugins/kw.js",
+    srcUrl: "https://raw.githubusercontent.com/Cfu4536/handy-scripts/refs/heads/main/FreeMusic/main/kw.js",
     cacheControl: "no-store",
     description: "## By: Thomas喲  \n#### 版本: 2025.09.16  \n支持导入单曲，获取评论  \n修复更新解析，代码优化  \n支持用户变量，更改接口  \n#### 音源重定向  \n支持的插件如下  \n酷我音乐, 小蜗音乐, 元力KW  \n#### Bug反馈  \n[点我加入反馈群](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=x8r6m0bYYon_pCgT0BRc1ohwZmkkY61Q&authKey=DpmUioCvx45WjRRBnbRT2DsJ7LL6DNY3uau%2BFKPgR%2FSKz4EgYqUjEU5tJNi%2BkNPl&noverify=0&group_code=365976134)  \n#### 支持作者  \n![支持作者](https://raw.githubusercontent.com/ThomasBy2025/hikerview/refs/heads/main/mm_facetoface_collect_qrcode_1757315185814.png)",
     hints: {

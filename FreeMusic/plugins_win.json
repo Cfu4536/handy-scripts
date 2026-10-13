@@ -4,27 +4,27 @@
     {
       "name": "QQ音乐-hwb",
       "url": "https://raw.githubusercontent.com/Cfu4536/handy-scripts/refs/heads/main/FreeMusic/main/qq.js",
-      "version": "1.0.0"
+      "version": "1.0.1"
     },
     {
       "name": "网易云音乐-hwb",
       "url": "https://raw.githubusercontent.com/Cfu4536/handy-scripts/refs/heads/main/FreeMusic/main/wyy.js",
-      "version": "1.0.0"
+      "version": "1.0.1"
     },
     {
       "name": "酷我音乐-hwb",
       "url": "https://raw.githubusercontent.com/Cfu4536/handy-scripts/refs/heads/main/FreeMusic/main/kw.js",
-      "version": "1.0.0"
+      "version": "2026.10.13"
     },
     {
       "name": "酷狗音乐-hwb",
       "url": "https://raw.githubusercontent.com/Cfu4536/handy-scripts/refs/heads/main/FreeMusic/main/kg.js",
-      "version": "1.0.0"
+      "version": "2026.10.13"
     },
     {
       "name": "喜马拉雅-hwb",
       "url": "https://raw.githubusercontent.com/Cfu4536/handy-scripts/refs/heads/main/FreeMusic/main/xmly.js",
-      "version": "1.0.0"
+      "version": "0.6.3"
     },
     {
       "name": "小秋音乐",
