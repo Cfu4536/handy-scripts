@@ -1,0 +1,65 @@
+/*
+ * GitHub 暗黑绿 — MusicFree Desktop v1.0.0-beta.4
+ * 参考 GitHub Primer 的暗色调色板，仅覆盖颜色和背景相关变量。
+ */
+:root {
+    /* 背景：使用不透明的灰黑层次区分各区域。 */
+    --color-bg-base: #0d1117;
+    --color-bg-sidebar: #151b23;
+    --color-bg-player: #151b23;
+    --color-bg-surface: #151b23;
+    --color-bg-surface-raised: #212830;
+    --color-bg-drawer: #151b23;
+    --color-bg-overlay: rgba(1, 4, 9, 0.72);
+    --color-bg-modal: #212830;
+    --color-bg-popover: #212830;
+    --color-bg-fullscreen: #0d1117;
+    --color-bg-placeholder: #212830;
+
+    /* 主操作：深绿色按钮配白字，悬停时加深以保持文字对比度。 */
+    --color-fill-brand: #238636;
+    --color-fill-brand-hover: #196c2e;
+    --color-fill-brand-muted: rgba(46, 160, 67, 0.18);
+
+    /* 中性操作及列表悬停。 */
+    --color-fill-neutral: #212830;
+    --color-fill-neutral-hover: #2a313c;
+    --color-fill-neutral-active: #2f3742;
+    --color-fill-subtle: rgba(145, 152, 161, 0.06);
+    --color-fill-subtle-hover: rgba(145, 152, 161, 0.12);
+
+    /* 文字：绿色文字比按钮底色更亮，在暗色区域中保持清晰。 */
+    --color-text-primary: #f0f6fc;
+    --color-text-secondary: #b7bdc8;
+    --color-text-muted: #9198a1;
+    --color-text-placeholder: #9198a1;
+    --color-text-disabled: #656c76;
+    --color-text-brand: #3fb950;
+    --color-text-on-brand: #ffffff;
+
+    /* 边框及键盘焦点。 */
+    --color-border-default: #3d444d;
+    --color-border-subtle: #262c36;
+    --color-border-strong: #656c76;
+    --color-border-focus: #3fb950;
+    --color-border-brand: rgba(63, 185, 80, 0.4);
+    --focus-ring: 0 0 0 2px var(--color-text-brand);
+
+    /* 提示与操作状态：保留蓝、黄、红的语义区分。 */
+    --color-status-info-bg: #0d1d31;
+    --color-status-info-border: rgba(56, 139, 253, 0.4);
+    --color-status-info-text: #79c0ff;
+    --color-status-warn-bg: #231b0e;
+    --color-status-warn-border: rgba(187, 128, 9, 0.4);
+    --color-status-warn-text: #e3b341;
+    --color-status-warn-fill: #845306;
+    --color-status-danger-bg: #281619;
+    --color-status-danger-border: rgba(248, 81, 73, 0.4);
+    --color-status-danger-text: #ff7b72;
+    --color-status-danger-fill: #b62324;
+    --color-status-success-text: #3fb950;
+    --color-favorite: #f85149;
+
+    /* 纯色主题：关闭应用默认的背景渐变。 */
+    --bg-image: none;
+}

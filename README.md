@@ -1,14 +1,15 @@
 # HandyScripts · 随手脚本
 
-一个个人自用的脚本与配置集合，集中维护 MusicFree 插件订阅清单和浏览器用户脚本。按用途分目录组织，便于配置、更新和维护日常使用的小工具。
+一个个人自用的脚本与配置集合，集中维护 MusicFree 插件、订阅清单、桌面主题和浏览器用户脚本。按用途分目录组织，便于配置、更新和维护日常使用的小工具。
 
 | 内容 | 文件 | 用途 |
 | --- | --- | --- |
 | MusicFree 插件清单 | [Windows 清单](FreeMusic/plugins_win.json)、[安卓清单](FreeMusic/plugins_android.json) | 每份收录十个插件地址，供 MusicFree 导入或订阅 |
 | MusicFree 本地插件 | [FreeMusic/main](FreeMusic/main) | 维护 Windows 清单中前五个插件的实现 |
+| MusicFree 桌面主题 | [GitHub 暗黑绿](FreeMusic/themes/github-dark-green.mftheme) | 为桌面版 `v1.0.0-beta.4` 提供灰黑背景与绿色主操作按钮 |
 | 浏览器用户脚本 | [WebScripts/学信网篡改.js](WebScripts/学信网篡改.js) | 自定义学信网移动端指定页面的本地显示 |
 
-当前项目由静态 JSON 配置、MusicFree 插件和浏览器脚本组成，没有独立的 HTTP API、后端服务、依赖清单或构建流程。MusicFree 插件使用客户端提供的内置模块。
+当前项目由静态 JSON 配置、MusicFree 插件、桌面主题和浏览器脚本组成，没有独立的 HTTP API、后端服务、依赖清单或统一构建流程。MusicFree 插件使用客户端提供的内置模块，桌面主题使用 ZIP 格式打包。
 
 ## 目录结构
 
@@ -23,12 +24,16 @@ handy-scripts/
 ├── FreeMusic/
 │   ├── plugins_win.json       # Windows 清单
 │   ├── plugins_android.json   # 安卓清单
-│   └── main/                  # Windows 清单前五个插件
-│       ├── qq.js
-│       ├── wyy.js
-│       ├── kw.js
-│       ├── kg.js
-│       └── xmly.js
+│   ├── main/                  # Windows 清单前五个插件
+│   │   ├── qq.js
+│   │   ├── wyy.js
+│   │   ├── kw.js
+│   │   ├── kg.js
+│   │   └── xmly.js
+│   └── themes/
+│       ├── github-dark-green/ # 主题源码：config.json、index.css
+│       ├── github-dark-green.mftheme # 可安装主题包
+│       └── github-dark-green-preview.png # 配色与控件示意
 └── WebScripts/
     └── 学信网篡改.js          # 学信网移动端页面显示自定义脚本
 ```
@@ -120,6 +125,45 @@ MusicFree 支持从网络或本地 JSON 文件安装插件。导入步骤参考 
 `kw.js` 与 `kg.js` 原先在 `R(x, z)` 中通过 `let` 再次声明参数 `z`，会在加载时产生 `SyntaxError: Identifier 'z' has already been declared`。本地已拆成变量声明和参数赋值，并修正两项插件备用解析的音质映射，以及酷狗的 `high` 拼写。MusicFree 桌面版 `0.0.8` 的 [加载器源码](https://github.com/maotoumao/MusicFreeDesktop/blob/f3b526a6c1ea9313b277810a8e12003605a98982/src/shared/plugin-manager/main/plugin.ts#L113) 通过 JavaScript `Function` 编译插件，这种语法错误会导致安装失败。
 
 五个本地脚本已通过语法检查、按照该桌面加载器调用方式执行的加载检查，以及使用模拟响应的播放返回值检查。模拟响应不代表真实音乐接口可用；桌面版 `0.0.8`、`1.0.0 beta4` 的实际安装、搜索和播放仍需在客户端中验证。QQ、网易云和酷我、酷狗的备用解析依赖第三方服务，喜马拉雅直接使用数据中已有的播放地址。
+
+## MusicFree 桌面主题
+
+[GitHub 暗黑绿主题包](FreeMusic/themes/github-dark-green.mftheme) 为 MusicFree Desktop `v1.0.0-beta.4` 制作，版本为 `1.0.0`。配色参考 [GitHub Primer 暗色调色板](https://github.com/primer/primitives/blob/main/src/tokens/base/color/dark/dark.json5)，主题变量已核对该客户端版本的 [global.scss](https://github.com/maotoumao/MusicFreeDesktop/blob/v1.0.0-beta.4/src/renderer/bootstrap/global.scss)。
+
+| 区域 | 配色 |
+| --- | --- |
+| 主背景、全屏播放器底色 | `#0d1117`，近黑色 |
+| 侧边栏、底部播放器、列表卡片 | `#151b23`，深灰色 |
+| 输入框、弹窗、右键菜单 | `#212830`，较亮的深灰色 |
+| 主操作按钮 | `#238636`，绿色；悬停为 `#196c2e`，深绿色 |
+| 高亮文字、选中图标 | `#3fb950`，明亮绿色 |
+| 主文字、辅助文字 | `#f0f6fc` / `#b7bdc8` |
+
+主题通过 `:root` 覆盖颜色变量，不包含背景图片、动态背景或外部资源，并通过 `--bg-image: none` 关闭默认背景渐变。普通次要按钮沿用深灰底色，提示和危险操作保留相应的蓝、黄、红色。歌曲封面和客户端自行生成的全屏封面氛围背景仍由客户端控制。
+
+[配色与控件示意](FreeMusic/themes/github-dark-green-preview.png) 直接读取主题 CSS 在浏览器中渲染，仅用于展示颜色和控件状态，不是 MusicFree 客户端截图，也不随主题安装。
+
+### 安装
+
+1. 打开 MusicFree 桌面版，进入「主题」页面的「本地主题」。
+2. 点击「安装主题包」，选择 `FreeMusic/themes/github-dark-green.mftheme`，无需解压。
+3. 找到「GitHub 暗黑绿」主题卡片并应用。
+4. 检查歌曲列表、主按钮与悬停状态、播放器、设置、弹窗、右键菜单和全屏歌词的显示效果。
+
+### 自定义与重新打包
+
+源码位于 [FreeMusic/themes/github-dark-green](FreeMusic/themes/github-dark-green)。修改 `index.css` 中的颜色即可调整外观；`config.json` 可修改主题名称、作者、描述和预览色，更新时递增 `version`。字号、间距、布局和圆角沿用客户端设置。
+
+在项目根目录运行以下 PowerShell 命令，可用两个源码文件重新生成安装包：
+
+```powershell
+$themeSource = ".\FreeMusic\themes\github-dark-green"
+$themeArchive = ".\FreeMusic\themes\github-dark-green.zip"
+Compress-Archive -LiteralPath "$themeSource\config.json", "$themeSource\index.css" -DestinationPath $themeArchive -Force
+Move-Item -LiteralPath $themeArchive -Destination ".\FreeMusic\themes\github-dark-green.mftheme" -Force
+```
+
+安装包根目录直接包含 `config.json` 和 `index.css`，已检查打包内容与源码一致。46 个覆盖变量均存在于 beta4 的源码中，未覆盖结构性变量；已在 Edge 中检查 CSS 解析、主按钮默认与悬停状态、键盘焦点，以及主要文字和按钮配色的对比度，检查的文字配色对比度均不低于 `4.5:1`。这些检查基于浏览器中的控件示意，尚未在 MusicFree 客户端实际安装验证。此主题尚未发布到主题市场。
 
 ## 浏览器用户脚本
 

@@ -1,0 +1,8 @@
+{
+    "name": "GitHub 暗黑绿",
+    "preview": "#0d1117",
+    "description": "参考 GitHub 暗色配色的静态主题：灰黑背景、绿色主操作按钮、明亮绿色高亮文字。适配 MusicFree Desktop v1.0.0-beta.4，不包含背景图片或动态背景。",
+    "author": "HandyScripts",
+    "version": "1.0.0",
+    "tags": ["暗色", "简约"]
+}
