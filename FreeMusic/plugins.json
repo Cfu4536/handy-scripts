@@ -1,0 +1,30 @@
+{
+  "desc": "hwb的自用FreeMusic插件",
+  "plugins": [
+    {
+      "name": "QQ音乐-hwb",
+      "url": "https://cdn.jsdelivr.net/gh/qwerwhr/musicfree-plugins@main/迟言QQ.js",
+      "version": "1.0.0"
+    },
+    {
+      "name": "网易云音乐-hwb",
+      "url": "https://cdn.jsdelivr.net/gh/qwerwhr/musicfree-plugins@main/溯音网易.js",
+      "version": "1.0.0"
+    },
+    {
+      "name": "酷我音乐-hwb",
+      "url": "https://cdn.jsdelivr.net/gh/qwerwhr/musicfree-plugins@main/酷我音乐Thomas.js",
+      "version": "1.0.0"
+    },
+    {
+      "name": "酷狗音乐-hwb",
+      "url": "https://cdn.jsdelivr.net/gh/qwerwhr/musicfree-plugins@main/酷狗Thomas.js",
+      "version": "1.0.0"
+    },
+    {
+      "name": "喜马拉雅-hwb",
+      "url": "https://cdn.jsdelivr.net/gh/qwerwhr/musicfree-plugins@main/喜马拉雅_竹侣.js",
+      "version": "1.0.0"
+    }
+  ]
+}
