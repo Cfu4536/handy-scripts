@@ -70,3 +70,34 @@
     --shadow-up: 0 -4px 12px rgba(0, 0, 0, 0.16);
     --shadow-left: -4px 0 16px rgba(0, 0, 0, 0.2);
 }
+
+/* 按用户要求参考 GitHub 暗黑绿，局部调整 beta4 侧栏文字与图标。 */
+.l-sidebar {
+    font-family:
+        'Microsoft YaHei UI', 'Microsoft YaHei',
+        'PingFang SC', 'Hiragino Sans GB', system-ui, sans-serif,
+        'Segoe UI Emoji', 'Apple Color Emoji';
+}
+
+.l-sidebar .l-sidebar__nav-item {
+    font-size: 14px;
+}
+
+.l-sidebar .l-sidebar__nav-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.l-sidebar .l-sidebar__group-title {
+    font-size: 16px;
+}
+
+.l-sidebar .l-sidebar__tool-btn {
+    width: 36px;
+    height: 36px;
+}
+
+.l-sidebar .l-sidebar__tool-btn > svg {
+    width: 20px;
+    height: 20px;
+}

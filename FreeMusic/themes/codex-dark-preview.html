@@ -16,7 +16,7 @@
         .primary, .download { background: var(--color-fill-brand); color: var(--color-text-on-brand); border-color: transparent; }
         .primary:hover, .download:hover { background: var(--color-fill-brand-hover); }
         .shell { min-height: 100vh; display: grid; grid-template-columns: 224px 1fr; grid-template-rows: 1fr 88px; }
-        aside { padding: 28px 16px; background: var(--color-bg-sidebar); border-right: 1px solid var(--color-border-subtle); }
+        aside { display: flex; flex-direction: column; padding: 28px 16px; background: var(--color-bg-sidebar); border-right: 1px solid var(--color-border-subtle); }
         .logo { padding: 0 12px 24px; font-size: 19px; font-weight: 650; letter-spacing: -.5px; }
         .logo span { color: var(--color-text-muted); font-size: 12px; font-weight: 400; margin-left: 6px; }
         .group { padding: 20px 12px 8px; color: var(--color-text-muted); font-size: 12px; }
@@ -24,6 +24,9 @@
         nav button { width: 100%; display: flex; gap: 12px; align-items: center; text-align: left; border: none; background: transparent; padding: 11px 12px; }
         nav .active { background: var(--color-fill-brand-muted); color: var(--color-text-brand); }
         nav svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; flex-shrink: 0; }
+        .sidebar-tools { display: flex; justify-content: space-between; margin-top: auto; padding: 28px 0 0; }
+        .sidebar-tools button { display: grid; place-items: center; padding: 0; }
+        .sidebar-tools svg { fill: none; stroke: currentColor; stroke-width: 1.6; }
         main { padding: 28px 40px 40px; min-width: 0; }
         header { display: flex; justify-content: space-between; gap: 24px; align-items: center; padding-bottom: 32px; }
         .breadcrumb, .muted { color: var(--color-text-muted); }
@@ -79,18 +82,24 @@
 </head>
 <body>
     <div class="shell">
-        <aside>
+        <aside class="l-sidebar">
             <div class="logo">MusicFree <span>Desktop</span></div>
             <nav aria-label="预览导航">
-                <button type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="m15 9-2 4-4 2 2-4z"/></svg>发现音乐</button>
-                <button type="button" class="active"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 18V5l12-2v13M8 8l12-2"/><ellipse cx="5" cy="18" rx="3" ry="2"/><ellipse cx="17" cy="16" rx="3" ry="2"/></svg>本地音乐</button>
-                <button type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M4 16v5h16v-5"/></svg>下载管理</button>
+                <button type="button" class="l-sidebar__nav-item"><svg class="l-sidebar__nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="m15 9-2 4-4 2 2-4z"/></svg>发现音乐</button>
+                <button type="button" class="active l-sidebar__nav-item"><svg class="l-sidebar__nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 18V5l12-2v13M8 8l12-2"/><ellipse cx="5" cy="18" rx="3" ry="2"/><ellipse cx="17" cy="16" rx="3" ry="2"/></svg>本地音乐</button>
+                <button type="button" class="l-sidebar__nav-item"><svg class="l-sidebar__nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M4 16v5h16v-5"/></svg>下载管理</button>
             </nav>
-            <div class="group">我的歌单</div>
+            <div class="group l-sidebar__group-title">我的歌单</div>
             <nav aria-label="示例歌单">
-                <button type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20 4 12C-2 5 7 0 12 7c5-7 14-2 8 5z"/></svg>我喜欢的音乐</button>
-                <button type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h9"/></svg>专注时刻</button>
+                <button type="button" class="l-sidebar__nav-item"><svg class="l-sidebar__nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20 4 12C-2 5 7 0 12 7c5-7 14-2 8 5z"/></svg>我喜欢的音乐</button>
+                <button type="button" class="l-sidebar__nav-item"><svg class="l-sidebar__nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h9"/></svg>专注时刻</button>
             </nav>
+            <div class="sidebar-tools" aria-label="工具栏图标外观示意">
+                <button type="button" class="l-sidebar__tool-btn" aria-label="插件图标预览"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg></button>
+                <button type="button" class="l-sidebar__tool-btn" aria-label="主题图标预览"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18h2a2 2 0 0 0 0-4h-1a2 2 0 0 1 0-4h3a5 5 0 0 0 0-10z"/><circle cx="7" cy="9" r="1"/><circle cx="11" cy="6" r="1"/><circle cx="16" cy="7" r="1"/></svg></button>
+                <button type="button" class="l-sidebar__tool-btn" aria-label="设置图标预览"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6l1 3 3 1 2 5-2 5-3 1-1 3H9l-1-3-3-1-2-5 2-5 3-1z"/><circle cx="12" cy="12" r="3"/></svg></button>
+                <button type="button" class="l-sidebar__tool-btn" aria-label="小窗图标预览"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 12h7v6h-7z"/></svg></button>
+            </div>
         </aside>
         <main>
             <header><span class="breadcrumb">音乐库 / 本地音乐</span><span class="badge">配色预览 · 非客户端截图</span></header>

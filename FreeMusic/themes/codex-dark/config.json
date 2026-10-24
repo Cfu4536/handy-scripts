@@ -1,8 +1,8 @@
 {
     "name": "Codex 深色",
     "preview": "#181818",
-    "description": "参考 Codex 桌面版的中性深色配色：炭灰主背景、黑色侧栏与播放器、浅灰主按钮和细分隔线。静态纯色主题，适配 MusicFree Desktop v1.0.0-beta.4。",
+    "description": "参考 Codex 桌面版的中性深色配色：炭灰主背景、黑色侧栏与播放器、浅灰主按钮和细分隔线。侧栏参考 GitHub 暗黑绿，优先使用微软雅黑 UI，菜单文字 14px、分组标题 16px、菜单及工具栏图标 20px、工具栏按钮 36px。静态纯色主题，适配 MusicFree Desktop v1.0.0-beta.4。",
     "author": "HandyScripts",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "tags": ["暗色", "简约"]
 }
