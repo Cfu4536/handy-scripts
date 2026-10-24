@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Codex 深色 · MusicFree 配色预览</title>
+    <link rel="stylesheet" href="codex-dark/index.css">
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; background: var(--color-bg-base); color: var(--color-text-primary); font: 14px/1.6 system-ui, 'Microsoft YaHei', sans-serif; }
+        button, input, a { font: inherit; }
+        button, .download { padding: 9px 16px; border: 1px solid var(--color-border-default); border-radius: 8px; color: var(--color-text-primary); background: var(--color-fill-neutral); cursor: pointer; text-decoration: none; }
+        button:hover { background: var(--color-fill-neutral-hover); }
+        button:active { background: var(--color-fill-neutral-active); }
+        :focus-visible { outline: none; box-shadow: var(--focus-ring); }
+        .primary, .download { background: var(--color-fill-brand); color: var(--color-text-on-brand); border-color: transparent; }
+        .primary:hover, .download:hover { background: var(--color-fill-brand-hover); }
+        .shell { min-height: 100vh; display: grid; grid-template-columns: 224px 1fr; grid-template-rows: 1fr 88px; }
+        aside { padding: 28px 16px; background: var(--color-bg-sidebar); border-right: 1px solid var(--color-border-subtle); }
+        .logo { padding: 0 12px 24px; font-size: 19px; font-weight: 650; letter-spacing: -.5px; }
+        .logo span { color: var(--color-text-muted); font-size: 12px; font-weight: 400; margin-left: 6px; }
+        .group { padding: 20px 12px 8px; color: var(--color-text-muted); font-size: 12px; }
+        nav { display: grid; gap: 5px; }
+        nav button { width: 100%; display: flex; gap: 12px; align-items: center; text-align: left; border: none; background: transparent; padding: 11px 12px; }
+        nav .active { background: var(--color-fill-brand-muted); color: var(--color-text-brand); }
+        nav svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; flex-shrink: 0; }
+        main { padding: 28px 40px 40px; min-width: 0; }
+        header { display: flex; justify-content: space-between; gap: 24px; align-items: center; padding-bottom: 32px; }
+        .breadcrumb, .muted { color: var(--color-text-muted); }
+        .badge { padding: 4px 10px; border: 1px solid var(--color-border-default); border-radius: 6px; color: var(--color-text-secondary); font-size: 12px; }
+        h1 { font-size: 30px; line-height: 1.3; letter-spacing: -.8px; margin: 0 0 12px; }
+        h2 { font-size: 16px; margin: 0; }
+        p { margin: 0; }
+        .intro { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+        .subtitle { color: var(--color-text-secondary); }
+        .toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+        input[type=search] { margin-left: auto; width: 230px; border: 1px solid var(--color-border-default); border-radius: 8px; padding: 9px 12px; background: var(--color-bg-surface-raised); color: var(--color-text-primary); }
+        input::placeholder { color: var(--color-text-placeholder); }
+        .songs { width: 100%; border-collapse: collapse; text-align: left; }
+        th { font-weight: 400; font-size: 12px; color: var(--color-text-muted); padding: 10px 16px; border-bottom: 1px solid var(--color-border-default); }
+        td { padding: 15px 16px; border-bottom: 1px solid var(--color-border-subtle); }
+        td:first-child { width: 40px; color: var(--color-text-muted); }
+        td:last-child { text-align: right; color: var(--color-text-secondary); font-variant-numeric: tabular-nums; }
+        tbody tr:hover { background: var(--color-fill-subtle-hover); }
+        tbody .selected { background: var(--color-fill-brand-muted); }
+        .song-title { display: block; font-weight: 500; }
+        .artist { font-size: 12px; color: var(--color-text-secondary); }
+        .bottom { margin-top: 28px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; }
+        .panel { padding: 20px; background: var(--color-bg-surface); border: 1px solid var(--color-border-default); border-radius: 12px; }
+        .swatches { display: flex; gap: 18px; margin-top: 16px; }
+        .swatch { width: 30px; height: 30px; border: 1px solid var(--color-border-strong); border-radius: 8px; margin-bottom: 5px; }
+        .swatch-label { color: var(--color-text-muted); font-size: 11px; }
+        .notice { margin-top: 10px; padding: 8px 12px; border: 1px solid; border-radius: 8px; font-size: 12px; }
+        .info { color: var(--color-status-info-text); background: var(--color-status-info-bg); border-color: var(--color-status-info-border); }
+        .warn { color: var(--color-status-warn-text); background: var(--color-status-warn-bg); border-color: var(--color-status-warn-border); }
+        .danger { color: var(--color-status-danger-text); background: var(--color-status-danger-bg); border-color: var(--color-status-danger-border); }
+        footer { grid-column: 1 / -1; display: grid; grid-template-columns: 270px 1fr 240px; align-items: center; gap: 32px; padding: 12px 28px; border-top: 1px solid var(--color-border-default); background: var(--color-bg-player); }
+        .track { display: flex; gap: 12px; align-items: center; }
+        .cover { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 10px; background: var(--color-bg-placeholder); color: var(--color-text-secondary); font-size: 22px; }
+        .transport { text-align: center; }
+        .transport .symbols { letter-spacing: 14px; line-height: 1; margin-bottom: 12px; }
+        .progress { height: 3px; border-radius: 4px; background: var(--color-fill-neutral-active); }
+        .progress span { display: block; width: 42%; height: 100%; background: var(--color-fill-brand); border-radius: inherit; }
+        .footnote { text-align: right; color: var(--color-text-muted); font-size: 12px; }
+        dialog { width: min(440px, 90vw); padding: 28px; border: 1px solid var(--color-border-strong); border-radius: 16px; background: var(--color-bg-modal); color: var(--color-text-primary); box-shadow: var(--shadow-xl); }
+        dialog::backdrop { background: var(--color-bg-overlay); }
+        dialog p { margin: 12px 0 24px; color: var(--color-text-secondary); }
+        dialog form { text-align: right; }
+        @media (max-width: 900px) {
+            .shell { grid-template-columns: 180px 1fr; }
+            main { padding: 24px; }
+            .intro { align-items: start; flex-direction: column; }
+            .bottom { grid-template-columns: 1fr; }
+            footer { grid-template-columns: 1fr 1fr; gap: 20px; }
+            .footnote { display: none; }
+            input[type=search] { width: 100%; margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <aside>
+            <div class="logo">MusicFree <span>Desktop</span></div>
+            <nav aria-label="预览导航">
+                <button type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="m15 9-2 4-4 2 2-4z"/></svg>发现音乐</button>
+                <button type="button" class="active"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 18V5l12-2v13M8 8l12-2"/><ellipse cx="5" cy="18" rx="3" ry="2"/><ellipse cx="17" cy="16" rx="3" ry="2"/></svg>本地音乐</button>
+                <button type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M4 16v5h16v-5"/></svg>下载管理</button>
+            </nav>
+            <div class="group">我的歌单</div>
+            <nav aria-label="示例歌单">
+                <button type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20 4 12C-2 5 7 0 12 7c5-7 14-2 8 5z"/></svg>我喜欢的音乐</button>
+                <button type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h9"/></svg>专注时刻</button>
+            </nav>
+        </aside>
+        <main>
+            <header><span class="breadcrumb">音乐库 / 本地音乐</span><span class="badge">配色预览 · 非客户端截图</span></header>
+            <div class="intro"><div><h1>Codex 深色</h1><p class="subtitle">安静的灰阶，为音乐留出空间。</p></div><a class="download" href="codex-dark.mftheme" download>下载主题包 ↓</a></div>
+            <div class="toolbar"><button class="primary" type="button" id="show-dialog">查看弹窗效果</button><button type="button">中性按钮</button><input type="search" aria-label="预览搜索输入框" placeholder="搜索音乐（输入框预览）"></div>
+            <table class="songs" aria-label="示例歌曲配色"><thead><tr><th>#</th><th>歌曲</th><th>专辑</th><th>时长</th></tr></thead><tbody>
+                <tr class="selected"><td>♪</td><td><span class="song-title">夜色渐深</span><span class="artist">示例艺术家</span></td><td class="muted">静谧时刻</td><td>04:12</td></tr>
+                <tr><td>02</td><td><span class="song-title">留白</span><span class="artist">示例艺术家</span></td><td class="muted">静谧时刻</td><td>03:48</td></tr>
+                <tr><td>03</td><td><span class="song-title">漫步之间</span><span class="artist">示例艺术家</span></td><td class="muted">城市片段</td><td>05:06</td></tr>
+            </tbody></table>
+            <div class="bottom">
+                <section class="panel"><h2>灰阶与交互</h2><div class="swatches">
+                    <div><div class="swatch" style="background:var(--color-bg-sidebar)"></div><span class="swatch-label">侧栏</span></div>
+                    <div><div class="swatch" style="background:var(--color-bg-base)"></div><span class="swatch-label">主背景</span></div>
+                    <div><div class="swatch" style="background:var(--color-bg-surface-raised)"></div><span class="swatch-label">面板</span></div>
+                    <div><div class="swatch" style="background:var(--color-fill-brand)"></div><span class="swatch-label">主按钮</span></div>
+                </div><p class="muted" style="margin-top:16px;font-size:12px">可检查按钮悬停、列表悬停、输入框焦点和弹窗。</p></section>
+                <section class="panel"><h2>提示状态</h2><div class="notice info">信息 · 浅蓝色提示与焦点</div><div class="notice warn">警告 · 橙色提醒</div><div class="notice danger">危险 · 红色操作提示</div></section>
+            </div>
+        </main>
+        <footer><div class="track"><div class="cover" aria-hidden="true">♫</div><div><span class="song-title">夜色渐深</span><span class="artist">示例艺术家</span></div></div><div class="transport" aria-label="播放器外观示意"><div class="symbols" aria-hidden="true">‹ ◯ ›</div><div class="progress"><span></span></div></div><div class="footnote">仅展示主题颜色，不播放音频<br>MusicFree Desktop beta.4</div></footer>
+    </div>
+    <dialog id="preview-dialog"><h2>Codex 深色</h2><p>弹窗采用略亮的深灰背景、细边框和轻阴影，与主区域区分层次。</p><form method="dialog"><button class="primary">完成</button></form></dialog>
+    <script>
+        document.getElementById('show-dialog').addEventListener('click', () => {
+            document.getElementById('preview-dialog').showModal();
+        });
+    </script>
+</body>
+</html>

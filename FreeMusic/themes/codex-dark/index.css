@@ -1,0 +1,72 @@
+/*
+ * Codex 深色 — MusicFree Desktop v1.0.0-beta.4
+ * 参考 Codex 26.1021.3705.0 的桌面颜色变量，按音乐播放器的语义适配。
+ */
+:root {
+    /* 背景：炭灰主区域、黑色侧栏，弹出面板略微提亮。 */
+    --color-bg-base: #181818;
+    --color-bg-sidebar: #000000;
+    --color-bg-player: #000000;
+    --color-bg-surface: #1c1c1c;
+    --color-bg-surface-raised: #212121;
+    --color-bg-drawer: #212121;
+    --color-bg-overlay: rgba(0, 0, 0, 0.64);
+    --color-bg-modal: #212121;
+    --color-bg-popover: #212121;
+    --color-bg-fullscreen: #181818;
+    --color-bg-placeholder: #303030;
+
+    /* 主操作：浅灰底配近黑文字，悬停提亮。 */
+    --color-fill-brand: #dfdfdf;
+    --color-fill-brand-hover: #ffffff;
+    --color-fill-brand-muted: rgba(223, 223, 223, 0.12);
+
+    /* 中性控件：用较轻的白色叠加区分交互状态。 */
+    --color-fill-neutral: rgba(255, 255, 255, 0.05);
+    --color-fill-neutral-hover: rgba(255, 255, 255, 0.08);
+    --color-fill-neutral-active: rgba(255, 255, 255, 0.12);
+    --color-fill-subtle: rgba(255, 255, 255, 0.03);
+    --color-fill-subtle-hover: rgba(255, 255, 255, 0.06);
+
+    /* 文字：保留 Codex 的柔和灰白层次。 */
+    --color-text-primary: #dfdfdf;
+    --color-text-secondary: #a0a0a0;
+    --color-text-muted: #919191;
+    --color-text-placeholder: #8f8f8f;
+    --color-text-disabled: #5d5d5d;
+    --color-text-brand: #dfdfdf;
+    --color-text-on-brand: #0d0d0d;
+
+    /* 细边框，键盘焦点使用 Codex 的蓝色提示。 */
+    --color-border-default: rgba(255, 255, 255, 0.08);
+    --color-border-subtle: rgba(255, 255, 255, 0.04);
+    --color-border-strong: rgba(255, 255, 255, 0.16);
+    --color-border-focus: #99ceff;
+    --color-border-brand: rgba(223, 223, 223, 0.3);
+    --focus-ring: 0 0 0 2px var(--color-border-focus);
+
+    /* 提示状态：蓝色信息、橙色警告、红色危险和绿色成功。 */
+    --color-status-info-bg: #10202f;
+    --color-status-info-border: rgba(153, 206, 255, 0.3);
+    --color-status-info-text: #99ceff;
+    --color-status-warn-bg: #2b1c15;
+    --color-status-warn-border: rgba(255, 133, 73, 0.3);
+    --color-status-warn-text: #ff8549;
+    --color-status-warn-fill: #ff8549;
+    --color-status-danger-bg: #2c1717;
+    --color-status-danger-border: rgba(255, 103, 100, 0.3);
+    --color-status-danger-text: #ff6764;
+    --color-status-danger-fill: #ff6764;
+    --color-status-success-text: #40c977;
+    --color-favorite: #ff6764;
+
+    /* 纯色背景与轻阴影。 */
+    --bg-image: none;
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.08);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.16);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.22);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.24);
+    --shadow-xl: 0 20px 48px rgba(0, 0, 0, 0.28);
+    --shadow-up: 0 -4px 12px rgba(0, 0, 0, 0.16);
+    --shadow-left: -4px 0 16px rgba(0, 0, 0, 0.2);
+}

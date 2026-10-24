@@ -8,6 +8,7 @@
 
 - [MusicFree 插件清单](doc/MusicFree插件清单.md)：Windows 和安卓插件列表、本地插件、订阅地址、导入与更新方式。
 - [MusicFree 桌面主题](doc/MusicFree桌面主题.md)：GitHub 暗黑绿主题的配色、安装、自定义与打包说明。
+- [MusicFree Codex 深色主题](doc/MusicFree-Codex主题.md)：参考 Codex 桌面配色的炭灰纯色主题，含安装包与源码。
 - [学信网用户脚本](doc/学信网用户脚本.md)：页面匹配范围、显示配置、安装方式与运行限制。
 - [DeepSeek 快捷按钮](doc/DeepSeek快捷按钮.md)：快捷提示词按钮的安装、使用与扩展配置。
 - [MusicFree 开发技能](doc/MusicFree开发技能.md)：项目内 AI 技能的用途、使用方法与来源。
