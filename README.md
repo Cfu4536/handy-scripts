@@ -7,7 +7,8 @@
 | MusicFree 插件清单 | [Windows 清单](FreeMusic/plugins_win.json)、[安卓清单](FreeMusic/plugins_android.json) | 每份收录十个插件地址，供 MusicFree 导入或订阅 |
 | MusicFree 本地插件 | [FreeMusic/main](FreeMusic/main) | 维护 Windows 清单中前五个插件的实现 |
 | MusicFree 桌面主题 | [GitHub 暗黑绿](FreeMusic/themes/github-dark-green.mftheme) | 为桌面版 `v1.0.0-beta.4` 提供灰黑背景与绿色主操作按钮 |
-| 浏览器用户脚本 | [WebScripts/学信网篡改.js](WebScripts/学信网篡改.js) | 自定义学信网移动端指定页面的本地显示 |
+| 学信网用户脚本 | [WebScripts/学信网篡改.js](WebScripts/学信网篡改.js) | 自定义学信网移动端指定页面的本地显示 |
+| DeepSeek 用户脚本 | [WebScripts/DeepSeek快捷按钮.js](WebScripts/DeepSeek快捷按钮.js) | 在“深度思考”“智能搜索”右侧添加同款样式的快捷提示词按钮 |
 
 当前项目由静态 JSON 配置、MusicFree 插件、桌面主题和浏览器脚本组成，没有独立的 HTTP API、后端服务、依赖清单或统一构建流程。MusicFree 插件使用客户端提供的内置模块，桌面主题使用 ZIP 格式打包。
 
@@ -36,7 +37,8 @@ handy-scripts/
 │       ├── github-dark-green-preview.png # 配色与控件示意
 │       └── github-dark-green-sidebar-preview.png # 侧栏尺寸对比
 └── WebScripts/
-    └── 学信网篡改.js          # 学信网移动端页面显示自定义脚本
+    ├── 学信网篡改.js          # 学信网移动端页面显示自定义脚本
+    └── DeepSeek快捷按钮.js    # DeepSeek 输入区快捷提示词按钮
 ```
 
 ## 项目内 MusicFree Skills
@@ -178,7 +180,7 @@ Move-Item -LiteralPath $themeArchive -Destination ".\FreeMusic\themes\github-dar
 
 安装包根目录直接包含 `config.json` 和 `index.css`，已检查打包内容与源码一致。47 个覆盖变量均存在于 beta4 的源码中；全局字体调整仅覆盖用户要求的 `--font-family`。颜色与字体已在 Edge 控件示意中检查，文字配色对比度均不低于 `4.5:1`；侧栏局部尺寸已使用 beta4 的组件结构和样式检查，覆盖菜单、长歌单名称和底部工具栏。浏览器检查与实际客户端验证是不同步骤，尚未在 MusicFree 客户端实际安装验证。此主题尚未发布到主题市场。
 
-## 浏览器用户脚本
+## 学信网用户脚本
 
 [WebScripts/学信网篡改.js](WebScripts/学信网篡改.js) 的用户脚本版本为 `2.2`，覆盖以下页面：
 
@@ -207,5 +209,36 @@ Move-Item -LiteralPath $themeArchive -Destination ".\FreeMusic\themes\github-dar
 文本更新由 `safeSetText` 处理：目标元素存在、配置值不是 `undefined`，且当前文本与配置不同，才执行赋值。总览页与详情页分别捕获渲染异常并输出到浏览器控制台。
 
 脚本依赖网站现有的 CSS 选择器和标签文字。页面结构改变后，部分字段可能不再生效；缺失目标元素时通常会跳过对应替换。持续轮询会产生一定开销，大量新增扫描逻辑时需要关注页面响应和 CPU 占用。
+
+## DeepSeek 快捷按钮
+
+[WebScripts/DeepSeek快捷按钮.js](WebScripts/DeepSeek快捷按钮.js) 的版本为 `1.1.0`，仅匹配 `https://chat.deepseek.com/*`，以 `@grant none`、`@run-at document-start` 运行。
+
+脚本在输入区“深度思考”“智能搜索”按钮的右侧添加“翻译”，与原生按钮在同一排，复用其圆角、边框、字号和主题配色，不复制原生开关的选中状态。如果只显示“深度思考”，则放在它的右侧；原生按钮未出现时等待加载，不显示悬浮按钮。点击“翻译”，会在输入框当前光标处插入以下内容（冒号后有两个换行），并将焦点放回输入框，不会自动发送消息：
+
+```javascript
+'帮我把下面的内容翻译成英文：\n\n'
+```
+
+已有文字会保留；如果选中了一段文字，则用提示词替换选中部分。点击时未找到可编辑输入框，会在按钮附近显示提示。脚本支持输入区延迟出现、切换会话和原生按钮重新创建，页面重绘后会重新定位并挂载快捷按钮。
+
+### 安装与使用
+
+1. 在 Tampermonkey 中新建用户脚本，将 `WebScripts/DeepSeek快捷按钮.js` 的完整内容粘贴进去，覆盖默认模板。
+2. 保存并启用脚本，然后打开或刷新 [DeepSeek 网页](https://chat.deepseek.com/)，按网站原有流程登录。
+3. 点击“智能搜索”右侧的“翻译”，在提示词后输入待翻译内容，检查后自行发送。更新旧版脚本时，覆盖油猴中的原代码、保存并刷新页面。
+
+### 添加其他按钮
+
+修改脚本顶部的 `CONFIG.buttons`，每一项用 `label` 指定按钮文字、`text` 指定插入内容，例如：
+
+```javascript
+buttons: [
+    { label: '翻译', text: '帮我把下面的内容翻译成英文：\n\n' },
+    { label: '润色', text: '帮我润色下面的内容：\n\n' }
+]
+```
+
+保存后刷新页面即可生效，新增按钮会按配置顺序排列在“翻译”旁边。脚本使用原生 DOM API 和 `MutationObserver`，不引入外部依赖、不轮询页面；网页输入框、原生按钮文字或样式结构改变后，可能需要调整 `INPUT_SELECTORS`、`findAnchor` 或样式类的复用逻辑。
 
 
