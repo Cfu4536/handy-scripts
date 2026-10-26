@@ -2,7 +2,7 @@
 
 [返回项目首页](../README.md)
 
-[WebScripts/DeepSeek快捷按钮.js](../WebScripts/DeepSeek快捷按钮.js) 的版本为 `1.1.0`，仅匹配 `https://chat.deepseek.com/*`，以 `@grant none`、`@run-at document-start` 运行。
+[WebScripts/DeepSeek快捷按钮.js](../WebScripts/DeepSeek快捷按钮.js) 的版本为 `1.2.1`，仅匹配 `https://chat.deepseek.com/*`，以 `@grant none`、`@run-at document-start` 运行。
 
 脚本在输入区“深度思考”“智能搜索”按钮的右侧添加“翻译”，与原生按钮在同一排，复用其圆角、边框、字号和主题配色，不复制原生开关的选中状态。如果只显示“深度思考”，则放在它的右侧；原生按钮未出现时等待加载，不显示悬浮按钮。点击“翻译”，会在输入框当前光标处插入以下内容（冒号后有两个换行），并将焦点放回输入框，不会自动发送消息：
 
@@ -16,7 +16,9 @@
 
 1. 在 Tampermonkey 中新建用户脚本，将 `WebScripts/DeepSeek快捷按钮.js` 的完整内容粘贴进去，覆盖默认模板。
 2. 保存并启用脚本，然后打开或刷新 [DeepSeek 网页](https://chat.deepseek.com/)，按网站原有流程登录。
-3. 点击“智能搜索”右侧的“翻译”，在提示词后输入待翻译内容，检查后自行发送。更新旧版脚本时，覆盖油猴中的原代码、保存并刷新页面。
+3. 点击“智能搜索”右侧的“翻译”，在提示词后输入待翻译内容，检查后自行发送。更新旧版脚本时，先覆盖油猴中的原代码、保存并刷新页面。
+
+脚本的 `@updateURL` 和 `@downloadURL` 均指向 [GitHub Raw 脚本地址](https://raw.githubusercontent.com/Cfu4536/handy-scripts/refs/heads/main/WebScripts/DeepSeek%E5%BF%AB%E6%8D%B7%E6%8C%89%E9%92%AE.js)，分别用于检查版本和下载更新。安装包含这两个字段的版本后，可在用户脚本管理器中检查更新；后续发布时需提高 `@version`，并将脚本上传到该地址对应的仓库分支。
 
 ## 添加其他按钮
 

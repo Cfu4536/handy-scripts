@@ -1,8 +1,10 @@
 // ==UserScript==
 // @name         DeepSeek 快捷按钮
 // @namespace    http://tampermonkey.net/
-// @version      1.2.0
+// @version      1.2.1
 // @description  在 DeepSeek 深度思考、智能搜索右侧添加同款样式的快捷提示词按钮
+// @updateURL    https://raw.githubusercontent.com/Cfu4536/handy-scripts/refs/heads/main/WebScripts/DeepSeek%E5%BF%AB%E6%8D%B7%E6%8C%89%E9%92%AE.js
+// @downloadURL  https://raw.githubusercontent.com/Cfu4536/handy-scripts/refs/heads/main/WebScripts/DeepSeek%E5%BF%AB%E6%8D%B7%E6%8C%89%E9%92%AE.js
 // @match        https://chat.deepseek.com/*
 // @grant        none
 // @run-at       document-start
