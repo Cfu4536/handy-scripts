@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DeepSeek 快捷按钮
 // @namespace    http://tampermonkey.net/
-// @version      1.2.1
+// @version      1.2.2
 // @description  在 DeepSeek 深度思考、智能搜索右侧添加同款样式的快捷提示词按钮
 // @updateURL    https://raw.githubusercontent.com/Cfu4536/handy-scripts/refs/heads/main/WebScripts/DeepSeek%E5%BF%AB%E6%8D%B7%E6%8C%89%E9%92%AE.js
 // @downloadURL  https://raw.githubusercontent.com/Cfu4536/handy-scripts/refs/heads/main/WebScripts/DeepSeek%E5%BF%AB%E6%8D%B7%E6%8C%89%E9%92%AE.js
@@ -158,7 +158,7 @@
             const label = document.createElement('span');
             label.textContent = action.label;
             button.appendChild(label);
-            button.title = '在输入框光标处插入提示词';
+            button.title = action.text;
             button.addEventListener('mousedown', event => {
                 if (event.button === 0) {
                     event.preventDefault();
