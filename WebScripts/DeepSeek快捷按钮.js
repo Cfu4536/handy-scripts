@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DeepSeek 快捷按钮
 // @namespace    http://tampermonkey.net/
-// @version      1.1.0
+// @version      1.2.0
 // @description  在 DeepSeek 深度思考、智能搜索右侧添加同款样式的快捷提示词按钮
 // @match        https://chat.deepseek.com/*
 // @grant        none
@@ -17,7 +17,15 @@
         buttons: [
             {
                 label: '翻译',
-                text: '帮我把下面的内容翻译成中文：\n\n'
+                text: '\n\n帮我把这些内容翻译成中文'
+            },
+            {
+                label: '求平均',
+                text: '\n\n帮我计算上面这些数字的平均值'
+            },
+            {
+                label: '代码问题',
+                text: '\n\n我的代码有什么问题？'
             }
         ]
     };
