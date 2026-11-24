@@ -1,0 +1,15 @@
+金鹰资源,http://jyzyapi.com/provide/vod/from/jinyingm3u8
+光速资源,http://api.guangsuapi.com/api.php/provide/vod/from/gsm3u8
+百度资源,http://api.apibdzy.com/api.php/provide/vod
+360|点播,https://360zy.com/api.php/provide/vod/
+丫丫|点播,https://cj.yayazy.net/api.php/provide/vod/
+豪华|点播,https://hhzyapi.com/api.php/provide/vod
+极速|点播,https://jszyapi.com/api.php/provide/vod
+虎牙|点播,https://www.huyaapi.com/api.php/provide/vod/
+百度|点播,https://api.apibdzy.com/api.php/provide/vod/
+无尽|点播,https://api.wujinapi.com/api.php/provide/vod/
+火狐|点播,https://hhzyapi.com/api.php/provide/vod/
+无尽资源,https://api.wujinapi.me/api.php/provide/vod
+优酷资源,https://api.ukuapi88.com/api.php/provide/vod
+光速资源,https://api.guangsuapi.com/api.php/provide/vod
+360资源,https://360zy.com/api.php/provide/vod
